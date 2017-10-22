@@ -1,0 +1,14 @@
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Core.Test.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Core.Test.pdb
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Core.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Core.pdb
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.csprojResolveAssemblyReference.cache
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.dll
+C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.pdb
