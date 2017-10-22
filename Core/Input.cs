@@ -19,6 +19,11 @@ namespace Core
 
             return punto;
         }
+
+        public void QuitarPuntos()
+        {
+            this.Puntos.Clear();
+        }
     }
 
     public class Punto

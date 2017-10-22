@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Core;
@@ -21,14 +22,15 @@ namespace Interface
 
             this.InitializeInput();
             this.InitializeOutput();
-
-            _input.AgregarPunto(1, 1);
-            _input.AgregarPunto(2, 1.5);
-            _input.AgregarPunto(4, 5.3);
-            _input.AgregarPunto(5, 6.3);
-            _input.AgregarPunto(8, 4.8);
-            _input.AgregarPunto(9, 8.3);
-            _input.AgregarPunto(11, 9.4);
+            
+            AgregarPunto(1, 1);
+            AgregarPunto(2, 1.5);
+            AgregarPunto(4, 5.3);
+            AgregarPunto(5, 6.3);
+            AgregarPunto(8, 4.8);
+            AgregarPunto(9, 8.3);
+            AgregarPunto(11, 9.4);
+            
             _input.CantidadDecimales = 4;
         }
 
@@ -52,17 +54,28 @@ namespace Interface
             this.dataGridView1.DataSource = _puntosBindingList;
         }
 
+        private void AgregarPunto(double x, double y)
+        {
+            Punto nuevoPunto = _input.AgregarPunto(x, y);
+            _puntosBindingList.Add(nuevoPunto);
+        }
+
         private void btnAgregarPunto_Click(object sender, EventArgs e)
         {
             var x = Convert.ToDouble(this.xValue.Value);
             var y = Convert.ToDouble(this.yValue.Value);
 
-            var nuevoPunto = _input.AgregarPunto(x, y);
 
             this.xValue.Value = 0;
             this.yValue.Value = 0;
 
-            _puntosBindingList.Add(nuevoPunto);
+            AgregarPunto(x, y);
+        }
+
+        private void btnBorrarPuntos_Click(object sender, EventArgs e)
+        {
+            _input.QuitarPuntos();
+            _puntosBindingList.Clear();
         }
 
         private void btnDecimales_Click(object sender, EventArgs e)
@@ -73,8 +86,16 @@ namespace Interface
         private void btnRecta_Click(object sender, EventArgs e)
         {
             if (!_resultados.ContainsKey(ModeloAproximacion.Recta))
-                throw new ApplicationException("Calculo previo es requerido");
-            
+            {
+                //throw new ApplicationException("Calculo previo es requerido");
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                return;
+            }
+
+
             var resultadoRecta = _resultados[ModeloAproximacion.Recta];
 
             var vistaResultado = new ResultadoAproximacion(_input, resultadoRecta);
@@ -86,8 +107,16 @@ namespace Interface
         private void btnParabola_Click(object sender, EventArgs e)
         {
             if (!_resultados.ContainsKey(ModeloAproximacion.Parabola))
-                throw new ApplicationException("Calculo previo es requerido");
-            
+            {
+                //throw new ApplicationException("Calculo previo es requerido");
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+
+                return;
+            }
+
             var resultadoParabola = _resultados[ModeloAproximacion.Parabola];
 
             var vistaResultado = new ResultadoAproximacion(_input, resultadoParabola);
@@ -98,8 +127,15 @@ namespace Interface
         private void btnExponencial_Click(object sender, EventArgs e)
         {
             if (!_resultados.ContainsKey(ModeloAproximacion.Exponencial))
-                throw new ApplicationException("Calculo previo es requerido");
-            
+            {
+                //throw new ApplicationException("Calculo previo es requerido");
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                return;
+            }
+
             var resultadoExponencial = _resultados[ModeloAproximacion.Exponencial];
 
             var vistaResultado = new ResultadoAproximacion(_input, resultadoExponencial);
@@ -110,8 +146,15 @@ namespace Interface
         private void btnPotencial_Click(object sender, EventArgs e)
         {
             if (!_resultados.ContainsKey(ModeloAproximacion.Potencial))
-                throw new ApplicationException("Calculo previo es requerido");
-            
+            {
+                //throw new ApplicationException("Calculo previo es requerido");
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                return;
+            }
+
             var resultadoPotencial = _resultados[ModeloAproximacion.Potencial];
 
             var vistaResultado = new ResultadoAproximacion(_input, resultadoPotencial);
@@ -122,7 +165,14 @@ namespace Interface
         private void btnHiperbola_Click(object sender, EventArgs e)
         {
             if (!_resultados.ContainsKey(ModeloAproximacion.Hiperbola))
-                throw new ApplicationException("Calculo previo es requerido");
+            {
+                //throw new ApplicationException("Calculo previo es requerido");
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                return;
+            }
 
             var resultadoHiperbola = _resultados[ModeloAproximacion.Hiperbola];
 
@@ -148,9 +198,29 @@ namespace Interface
 
         private void btnMejorAproximacion_Click(object sender, EventArgs e)
         {
+            if (_resultados.Count == 0)
+            {
+                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                this.tabInput.Select();
+                this.tabOutout.SelectedTab = this.tabInput;
+                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                return;
+            }
+
             var vistaResultado = new ResultadoAproximacion(_input, _mejorResultado);
             vistaResultado.Text = "Mejor Aproximación";
             vistaResultado.Show();
+
+            var vistaComparacion = new ResultadoComparacion(_input, _mejorResultado);
+            vistaComparacion.Text = "Mejor Aproximación - Comparacion";
+            vistaComparacion.Show();
+        }
+
+        private void MensajeError(String message, String caption)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(message, caption, buttons);
+                
         }
     }
 }
