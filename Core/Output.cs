@@ -5,6 +5,7 @@ namespace Core
     public class Output
     {
         public string[] CabeceraResultados { get; set; }
+        public string[] CabeceraComparacion { get; set; }
         public double[][] Resultados { get; set; }
         public double[] Totales { get; set; }
         public double[] Coheficientes { get; set; }

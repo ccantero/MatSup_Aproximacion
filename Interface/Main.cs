@@ -16,6 +16,8 @@ namespace Interface
         private IDictionary<ModeloAproximacion, Aproximacion> _modelosAproximaciones;
         private Output _mejorResultado;
 
+        public String myString = "Cristhian";
+
         public Main()
         {
             InitializeComponent();
@@ -211,9 +213,10 @@ namespace Interface
             vistaResultado.Text = "Mejor Aproximación";
             vistaResultado.Show();
 
-            var vistaComparacion = new ResultadoComparacion(_input, _mejorResultado);
+            var vistaComparacion = new ResultadoComparacion(_input, _mejorResultado, _resultados);
             vistaComparacion.Text = "Mejor Aproximación - Comparacion";
             vistaComparacion.Show();
+
         }
 
         private void MensajeError(String message, String caption)

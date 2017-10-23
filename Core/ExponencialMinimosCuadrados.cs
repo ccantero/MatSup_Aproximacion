@@ -69,5 +69,10 @@ namespace Core
         {
             return new[] { "x", "y", "ln y", "x^2", "x ln y" };
         }
+
+        public override string[] CabeceraComparacion()
+        {
+            return new[] { "x", "y" };
+        }
     }
 }

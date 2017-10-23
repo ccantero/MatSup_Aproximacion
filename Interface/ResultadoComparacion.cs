@@ -15,7 +15,7 @@ namespace Interface
 {
     public partial class ResultadoComparacion : Form
     {
-        public ResultadoComparacion(Input input, Output resultado)
+        public ResultadoComparacion(Input input, Output resultado, IDictionary<ModeloAproximacion, Output> resultados)
         {
             InitializeComponent();
 
@@ -27,28 +27,63 @@ namespace Interface
             var dataTable = new DataTable();
 
            
-            foreach (var cabecera in resultado.CabeceraResultados)
+            foreach (var cabecera in resultado.CabeceraComparacion)
             {
                 dataTable.Columns.Add(cabecera, typeof(double));
+            }
+
+            foreach (var modeloAproximacion in resultados)
+            {
+                dataTable.Columns.Add(modeloAproximacion.Key.ToString(), typeof(double));
+            }
+
+            foreach (var modeloAproximacion in resultados)
+            {
+                dataTable.Columns.Add(modeloAproximacion.Key.ToString() + "_ERROR", typeof(double));
             }
 
             foreach (var coheficientes in resultado.Resultados)
             {
                 var row = dataTable.NewRow();
-                for (int i = 0; i < coheficientes.Length; i++)
+                for (int i = 0; i < resultado.CabeceraComparacion.Length; i++)
                     row[i] = coheficientes[i];
 
                 dataTable.Rows.Add(row);
             }
 
-            var rowTotales = dataTable.NewRow();
-            for (int i = 0; i < resultado.Totales.Length; i++)
+            int column = resultado.CabeceraComparacion.Length;
+
+            foreach (var modeloAproximacion in resultados)
             {
-                rowTotales[i] = resultado.Totales[i];
+                Output output = modeloAproximacion.Value;
+                int rowNumber = 0;
+                foreach (var aproximacion in output.Aproximaciones)
+                {
+                    var row = dataTable.Rows[rowNumber];
+                    row[column] = aproximacion;
+                    rowNumber++;
+                }
+
+                rowNumber = 0;
+                foreach (var error in output.Errores)
+                {
+                    var row = dataTable.Rows[rowNumber];
+                    row[column + resultados.Count] = error;
+                    rowNumber++;
+                }
+
+                column++;
             }
-            dataTable.Rows.Add(rowTotales);
+
+
+
+
+
+
+
 
             this.dataGridView1.DataSource = dataTable;
+            
         }
     }
 }

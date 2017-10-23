@@ -6,6 +6,7 @@ namespace Core
     {
         public abstract Output Calcular(Input input);
         public abstract string[] CabeceraResultados();
+        public abstract string[] CabeceraComparacion();
         public abstract string Expresion(double[] coheficientes);
 
         protected Output Output(Input input, double[][] resultados, double[] totales, double[] coheficientes, Func<double, double> funcion)
@@ -28,6 +29,7 @@ namespace Core
             var output = new Output
             {
                 CabeceraResultados = this.CabeceraResultados(),
+                CabeceraComparacion = this.CabeceraComparacion(),
                 Funcion = funcion,
                 Expresion = this.Expresion(coheficientes),
                 Resultados = resultados,
