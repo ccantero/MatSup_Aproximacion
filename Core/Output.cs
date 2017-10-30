@@ -10,7 +10,9 @@ namespace Core
         public double[] Totales { get; set; }
         public double[] Coheficientes { get; set; }
         public double[] Aproximaciones { get; set; } 
-        public double[] Errores { get; set; } 
+        public double[] Errores { get; set; }
+
+        public string SistemaEcuaciones { get; set; }
 
         public Func<double, double> Funcion { get; set; }
         public string Expresion { get; set; }

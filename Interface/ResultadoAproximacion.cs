@@ -61,6 +61,18 @@ namespace Interface
             dataTable.Rows.Add(rowTotales);
 
             this.dataGridView1.DataSource = dataTable;
+            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Ecuaciones"},0,0);
+            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Resultados" }, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Expresion" }, 0, 2);
+
+            this.tableLayoutPanel2.Controls.Add(new Label() { Text = resultado.SistemaEcuaciones, Dock = DockStyle.Fill }, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(new Label() { Text = resultado.Expresion, Dock = DockStyle.Fill }, 1, 2);
+
+
+            //this.labelExpresion.Text = resultado.Expresion;
+            //this.labelEcuaciones.Text = resultado.SistemaEcuaciones;
+
+
         }
     }
 }

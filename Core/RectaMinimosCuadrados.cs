@@ -42,6 +42,12 @@ namespace Core
                 new[] {sumaX, input.Puntos.Count, sumaY}
             };
 
+            double[][] copyMatriz = new double[][]
+            {
+                new[] {sumaX2, sumaX, sumaXY},
+                new[] {sumaX, input.Puntos.Count, sumaY}
+            };
+
             var resultado = new GaussJordan().Resolve(matriz);
             var a = Math.Round(resultado[0], 2);
             var b = Math.Round(resultado[1], 2);
@@ -49,7 +55,14 @@ namespace Core
 
             var funcion = this.Funcion(a, b);
 
-            return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion);
+            //return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion);
+
+            String sistemaEcuaciones = "";
+            sistemaEcuaciones += "a " + sumaX2.ToString() + " + b " + sumaX.ToString() + " = " + sumaXY.ToString() + "\n";
+            sistemaEcuaciones += "a " + sumaX.ToString() + " + b " + input.Puntos.Count + " = " + sumaY.ToString();
+
+
+            return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion, sistemaEcuaciones);
         }
 
         private Func<double, double> Funcion(double a, double b)
