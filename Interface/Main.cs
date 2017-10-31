@@ -34,6 +34,7 @@ namespace Interface
             AgregarPunto(11, 9.4);
             
             _input.CantidadDecimales = 4;
+            this.decimalesValue.Value = _input.CantidadDecimales;
         }
 
         private void InitializeOutput()
@@ -194,7 +195,7 @@ namespace Interface
             _mejorResultado = _resultados.Values.Aggregate(
                 (resultado, mejorResulrado) =>
                 {
-                    return resultado.ErrorTotal >= mejorResulrado.ErrorTotal ? resultado : mejorResulrado;
+                    return resultado.ErrorTotal <= mejorResulrado.ErrorTotal ? resultado : mejorResulrado;
                 });
         }
 

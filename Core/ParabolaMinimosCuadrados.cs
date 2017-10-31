@@ -27,14 +27,23 @@ namespace Core
                 var x2y = Math.Round(Math.Pow(punto.X, 2) * punto.Y, input.CantidadDecimales);
 
                 resultados.Add(new[] { x, y, x2, x3, x4, xy, x2y});
+                
+                // Sino redondeamos en la suma, surgen valores con más decimales
+                //sumaX += x;
+                //sumaY += y;
+                //sumaX2 += x2;
+                //sumaX3 += x3;
+                //sumaX4 += x4;
+                //sumaXY += xy;
+                //sumaX2Y += x2y;
 
-                sumaX += x;
-                sumaY += y;
-                sumaX2 += x2;
-                sumaX3 += x3;
-                sumaX4 += x4;
-                sumaXY += xy;
-                sumaX2Y += x2y;
+                sumaX = Math.Round(sumaX + x, input.CantidadDecimales);
+                sumaY = Math.Round(sumaY + y, input.CantidadDecimales);
+                sumaX2 = Math.Round(sumaX2 + x2, input.CantidadDecimales);
+                sumaX3 = Math.Round(sumaX3 + x3, input.CantidadDecimales);
+                sumaX4 = Math.Round(sumaX4 + x4, input.CantidadDecimales);
+                sumaXY = Math.Round(sumaXY + xy, input.CantidadDecimales);
+                sumaX2Y = Math.Round(sumaX2Y + x2y, input.CantidadDecimales);
             }
 
             var totales = new[] {sumaX, sumaY, sumaX2, sumaX3, sumaX4, sumaXY, sumaX2Y};
@@ -54,7 +63,15 @@ namespace Core
             var coheficientes = new[] {a, b, c};
             var funcion = this.Funcion(a, b, c);
 
-            return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion);
+            //return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion);
+
+            String sistemaEcuaciones = "";
+            sistemaEcuaciones += "a " + sumaX4.ToString() + " + b " + sumaX3.ToString() + "+ c " + sumaX2.ToString() + " = " + sumaX2Y.ToString() + "\n";
+            sistemaEcuaciones += "a " + sumaX3.ToString() + " + b " + sumaX2.ToString() + "+ c " + sumaX.ToString() + " = " + sumaXY.ToString() + "\n";
+            sistemaEcuaciones += "a " + sumaX2.ToString() + " + b " + sumaX.ToString() + "+ c " + input.Puntos.Count + " = " + sumaY.ToString() + "\n";
+
+
+            return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion, sistemaEcuaciones);
         }
 
         private Func<double, double> Funcion(double a, double b, double c)

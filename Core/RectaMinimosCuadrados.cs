@@ -49,8 +49,8 @@ namespace Core
             };
 
             var resultado = new GaussJordan().Resolve(matriz);
-            var a = Math.Round(resultado[0], 2);
-            var b = Math.Round(resultado[1], 2);
+            var a = Math.Round(resultado[0], decimales);
+            var b = Math.Round(resultado[1], decimales);
             var coheficientes = new[] {a, b};
 
             var funcion = this.Funcion(a, b);
@@ -60,7 +60,6 @@ namespace Core
             String sistemaEcuaciones = "";
             sistemaEcuaciones += "a " + sumaX2.ToString() + " + b " + sumaX.ToString() + " = " + sumaXY.ToString() + "\n";
             sistemaEcuaciones += "a " + sumaX.ToString() + " + b " + input.Puntos.Count + " = " + sumaY.ToString();
-
 
             return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion, sistemaEcuaciones);
         }

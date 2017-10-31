@@ -61,18 +61,78 @@ namespace Interface
             dataTable.Rows.Add(rowTotales);
 
             this.dataGridView1.DataSource = dataTable;
-            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Ecuaciones"},0,0);
-            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Resultados" }, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(new Label() { Text = "Expresion" }, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(new Label() {
+                Text = "Ecuaciones",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 24, FontStyle.Bold)
+            },0,0);
 
-            this.tableLayoutPanel2.Controls.Add(new Label() { Text = resultado.SistemaEcuaciones, Dock = DockStyle.Fill }, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(new Label() { Text = resultado.Expresion, Dock = DockStyle.Fill }, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(new Label()
+            {
+                Text = "Resultados",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 24, FontStyle.Bold)
+            }, 0, 1);
+
+            this.tableLayoutPanel2.Controls.Add(new Label() {
+                Text = "Expresion",
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Arial", 24, FontStyle.Bold)
+            }, 0, 2);
+
+            this.tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+
+            this.tableLayoutPanel2.Controls.Add(new Label() {
+                Text = resultado.SistemaEcuaciones,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Lucila Console", 16, FontStyle.Regular)
+            }, 1, 0);
 
 
-            //this.labelExpresion.Text = resultado.Expresion;
-            //this.labelEcuaciones.Text = resultado.SistemaEcuaciones;
+            string coheficientesText = "";
+            char letra = 'a';
+
+            foreach (var item in resultado.Coheficientes)
+            {
+                coheficientesText += letra + " = " + item.ToString() + "\n";
+                letra = (char)((int) letra + 1);
+            }
+
+            this.tableLayoutPanel2.Controls.Add(new Label()
+            {
+                Text = coheficientesText,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Lucila Console", 16, FontStyle.Regular)
+            }, 1, 1);
+
+            this.tableLayoutPanel2.Controls.Add(new Label() {
+                Text = resultado.Expresion,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Lucila Console", 16, FontStyle.Regular)
+            }, 1, 2);
 
 
+
+            foreach (DataGridViewColumn column in this.dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.BackgroundColor = Color.White;
+            this.dataGridView1.BorderStyle = BorderStyle.None;
+        }
+
+        private void ResultadoAproximacion_Load(object sender, EventArgs e)
+        {
+            this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.White;
+            this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Green;
         }
     }
 }

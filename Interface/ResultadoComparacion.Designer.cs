@@ -74,6 +74,7 @@
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ResultadoComparacion";
             this.Text = "ResultadoAproximacion";
+            this.Load += new System.EventHandler(this.ResultadoComparacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
