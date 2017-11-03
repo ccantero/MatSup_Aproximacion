@@ -42,12 +42,6 @@ namespace Core
                 new[] {sumaX, input.Puntos.Count, sumaY}
             };
 
-            double[][] copyMatriz = new double[][]
-            {
-                new[] {sumaX2, sumaX, sumaXY},
-                new[] {sumaX, input.Puntos.Count, sumaY}
-            };
-
             var resultado = new GaussJordan().Resolve(matriz);
             var a = Math.Round(resultado[0], decimales);
             var b = Math.Round(resultado[1], decimales);

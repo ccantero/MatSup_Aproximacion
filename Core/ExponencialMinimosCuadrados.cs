@@ -49,7 +49,15 @@ namespace Core
             var coheficientes = new[] {a, b};
             var funcion = this.Funcion(a, b);
 
-            return this.Output(input, resultados, totales, coheficientes, funcion);
+            //return this.Output(input, resultados, totales, coheficientes, funcion);
+
+            String sistemaEcuaciones = "";
+            sistemaEcuaciones += "A " + totales[3].ToString() + " + B " + totales[0].ToString() + " = " + totales[4].ToString() + "\n";
+            sistemaEcuaciones += "A " + totales[0].ToString() + " + B " + input.Puntos.Count + " = " + totales[2].ToString() + "\n";
+            sistemaEcuaciones += "A = a" + "\n";
+            sistemaEcuaciones += "b = e^B" + "\n";
+
+            return this.Output(input, resultados.ToArray(), totales, coheficientes, funcion, sistemaEcuaciones);
         }
 
         private Func<double, double> Funcion(double a, double b)

@@ -25,15 +25,26 @@ namespace Interface
             this.InitializeInput();
             this.InitializeOutput();
             
-            AgregarPunto(1, 1);
-            AgregarPunto(2, 1.5);
-            AgregarPunto(4, 5.3);
-            AgregarPunto(5, 6.3);
-            AgregarPunto(8, 4.8);
-            AgregarPunto(9, 8.3);
-            AgregarPunto(11, 9.4);
+            // Test
+
+            //AgregarPunto(1, 1);
+            //AgregarPunto(2, 1.5);
+            //AgregarPunto(4, 5.3);
+            //AgregarPunto(5, 6.3);
+            //AgregarPunto(8, 4.8);
+            //AgregarPunto(9, 8.3);
+            //AgregarPunto(11, 9.4);
             
+            //_input.CantidadDecimales = 4;
+
+            AgregarPunto(1, 5.1);
+            AgregarPunto(1.25, 5.79);
+            AgregarPunto(1.5, 6.53);
+            AgregarPunto(1.75, 7.45);
+            AgregarPunto(2, 8.46);
+
             _input.CantidadDecimales = 4;
+
             this.decimalesValue.Value = _input.CantidadDecimales;
         }
 
