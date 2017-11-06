@@ -12,3 +12,21 @@ C:\Users\sergio\Desktop\MatSup\Core\Core.Test\bin\Debug\Microsoft.VisualStudio.T
 C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.csprojResolveAssemblyReference.cache
 C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.dll
 C:\Users\sergio\Desktop\MatSup\Core\Core.Test\obj\Debug\Core.Test.pdb
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Core.Test.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Core.Test.pdb
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Core.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Core.pdb
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\obj\Debug\Core.Test.csprojResolveAssemblyReference.cache
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\obj\Debug\Core.Test.csproj.CoreCompileInputs.cache
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\obj\Debug\Core.Test.dll
+E:\UTN\Matematica Superior\MatSup_Aproximacion\Core.Test\obj\Debug\Core.Test.pdb

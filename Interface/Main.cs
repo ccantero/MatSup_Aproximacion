@@ -15,7 +15,7 @@ namespace Interface
         private IDictionary<ModeloAproximacion, Output> _resultados;
         private IDictionary<ModeloAproximacion, Aproximacion> _modelosAproximaciones;
         private Output _mejorResultado;
-
+        int calculado = 0;
         public String myString = "Cristhian";
 
         public Main()
@@ -90,6 +90,7 @@ namespace Interface
         {
             _input.QuitarPuntos();
             _puntosBindingList.Clear();
+            calculado = 0;
         }
 
         private void btnDecimales_Click(object sender, EventArgs e)
@@ -120,17 +121,21 @@ namespace Interface
 
         private void btnParabola_Click(object sender, EventArgs e)
         {
-            if (!_resultados.ContainsKey(ModeloAproximacion.Parabola))
+            if (_puntosBindingList == null)
             {
                 //throw new ApplicationException("Calculo previo es requerido");
-                MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
-                this.tabInput.Select();
-                this.tabOutout.SelectedTab = this.tabInput;
-                this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
+                MensajeError("Debe ingresar datos y presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                if ((!_resultados.ContainsKey(ModeloAproximacion.Parabola))
+                {
+                    //throw new ApplicationException("Calculo previo es requerido");
+                    MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");
+                    this.tabInput.Select();
+                    this.tabOutout.SelectedTab = this.tabInput;
+                    this.btnCalcular.Font = new Font(this.btnCalcular.Font.Name, this.btnCalcular.Font.Size, FontStyle.Bold);
 
-                return;
+                    return;
+                }
             }
-
             var resultadoParabola = _resultados[ModeloAproximacion.Parabola];
 
             var vistaResultado = new ResultadoAproximacion(_input, resultadoParabola);
@@ -197,17 +202,28 @@ namespace Interface
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            foreach (var modeloAproximacion in _modelosAproximaciones)
+            if (calculado == 0)
             {
-                var resultado = modeloAproximacion.Value.Calcular(_input);
-                _resultados.Add(modeloAproximacion.Key, resultado);
-            }
-
-            _mejorResultado = _resultados.Values.Aggregate(
-                (resultado, mejorResulrado) =>
+                calculado = 1;
+                //throw new ApplicationException("Calculo realizado");
+                MensajeError("El calculo se realizo con exito.", "Calculo procesado");
+                foreach (var modeloAproximacion in _modelosAproximaciones)
                 {
-                    return resultado.ErrorTotal <= mejorResulrado.ErrorTotal ? resultado : mejorResulrado;
-                });
+                    var resultado = modeloAproximacion.Value.Calcular(_input);
+                    _resultados.Add(modeloAproximacion.Key, resultado);
+                }
+
+                _mejorResultado = _resultados.Values.Aggregate(
+                    (resultado, mejorResulrado) =>
+                    {
+                        return resultado.ErrorTotal <= mejorResulrado.ErrorTotal ? resultado : mejorResulrado;
+                    });
+            }
+            else
+            {
+                //throw new ApplicationException("Ya se calculo");
+                MensajeError("Estos datos ya han sido calculados.", "Aproximación calculada");
+            }
         }
 
         private void btnMejorAproximacion_Click(object sender, EventArgs e)
