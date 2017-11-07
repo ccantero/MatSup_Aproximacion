@@ -23,7 +23,7 @@ namespace Interface
             this.plotView1.Size = new Size(580, 560);
             this.dataGridView1.Size = new Size(520, 450);
 
-            var myModel = new PlotModel { Title = "Example 1" };
+            var myModel = new PlotModel { Title = "Grafica" };
 
             var ancho = input.Puntos.Max(p => p.X) + 1;
             myModel.Series.Add(new FunctionSeries(resultado.Funcion, 0, ancho, 0.1, resultado.Expresion));

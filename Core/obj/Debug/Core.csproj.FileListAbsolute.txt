@@ -8,3 +8,8 @@ E:\UTN\Matematica Superior\MatSup_Aproximacion\Core\bin\Debug\Core.pdb
 E:\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
 E:\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.dll
 E:\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.pdb
+C:\Users\Ale\Documents\UTN\Matematica Superior\MatSup_Aproximacion\Core\bin\Debug\Core.dll
+C:\Users\Ale\Documents\UTN\Matematica Superior\MatSup_Aproximacion\Core\bin\Debug\Core.pdb
+C:\Users\Ale\Documents\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
+C:\Users\Ale\Documents\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.dll
+C:\Users\Ale\Documents\UTN\Matematica Superior\MatSup_Aproximacion\Core\obj\Debug\Core.pdb

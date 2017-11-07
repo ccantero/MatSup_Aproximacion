@@ -125,7 +125,7 @@ namespace Interface
             {
                 //throw new ApplicationException("Calculo previo es requerido");
                 MensajeError("Debe ingresar datos y presionar el boton calcular antes de proceder.", "Aproximación no calculada");
-                if ((!_resultados.ContainsKey(ModeloAproximacion.Parabola))
+                if ((!_resultados.ContainsKey(ModeloAproximacion.Parabola)))
                 {
                     //throw new ApplicationException("Calculo previo es requerido");
                     MensajeError("Debe presionar el boton calcular antes de proceder.", "Aproximación no calculada");

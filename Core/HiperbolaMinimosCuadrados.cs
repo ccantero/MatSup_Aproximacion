@@ -53,7 +53,17 @@ namespace Core
             var coheficientes = new[] {a, b};
             var funcion = this.Funcion(a, b);
 
-            return this.Output(input, resultados, totales, coheficientes, funcion);
+            double sumaX = resultadoRecta.Totales[0];
+            double cantPuntos = puntosRecta.Count;
+            double sumaUnoSobreY = resultadoRecta.Totales[1];
+            double sumaXxUnoSobreY = resultadoRecta.Totales[3];
+            double sumaUnoSobreYCuadrado = resultadoRecta.Totales[2];
+
+            String sistemaEcuaciones = "";
+            sistemaEcuaciones += sumaX.ToString() + " = " + cantPuntos + " A + B " + sumaUnoSobreY.ToString() + "\n";
+            sistemaEcuaciones += sumaXxUnoSobreY.ToString() + " = A " + sumaUnoSobreY.ToString() + " + B " + sumaUnoSobreYCuadrado.ToString();
+
+            return this.Output(input, resultados, totales, coheficientes, funcion, sistemaEcuaciones);
         }
 
         private Func<double, double> Funcion(double a, double b)
