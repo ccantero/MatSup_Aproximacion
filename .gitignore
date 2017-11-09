@@ -1,0 +1,6 @@
+.vs/*
+Core.Test/*
+Interface/obj/*
+Interface/bin/*
+Core/obj/*
+Core/bin/*
