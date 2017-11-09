@@ -60,8 +60,9 @@ namespace Core
             double sumaUnoSobreYCuadrado = resultadoRecta.Totales[2];
 
             String sistemaEcuaciones = "";
-            sistemaEcuaciones += sumaX.ToString() + " = " + cantPuntos + " A + B " + sumaUnoSobreY.ToString() + "\n";
-            sistemaEcuaciones += sumaXxUnoSobreY.ToString() + " = A " + sumaUnoSobreY.ToString() + " + B " + sumaUnoSobreYCuadrado.ToString();
+            sistemaEcuaciones += resultadoRecta.SistemaEcuaciones.ToUpper() + "\n";
+            sistemaEcuaciones += "a = 1/A" + "\n";
+            sistemaEcuaciones += "b = B/A" + "\n";
 
             return this.Output(input, resultados, totales, coheficientes, funcion, sistemaEcuaciones);
         }

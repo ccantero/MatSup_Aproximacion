@@ -127,12 +127,27 @@ namespace Interface
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.BackgroundColor = Color.White;
             this.dataGridView1.BorderStyle = BorderStyle.None;
+
         }
 
         private void ResultadoAproximacion_Load(object sender, EventArgs e)
         {
             this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.White;
             this.dataGridView1.Rows[this.dataGridView1.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Green;
+
+            // no smaller than design time size
+            this.MinimumSize = new System.Drawing.Size(this.Width, this.Height);
+
+            this.dataGridView1.AutoSize = true;
+
+            int width = 0;
+            foreach (DataGridViewColumn column in this.dataGridView1.Columns)
+            {
+                width += column.Width;
+            }
+
+            this.Size = new System.Drawing.Size(width + this.plotView1.Size.Width + width * 50 / 100, 519);
+            //this.ClientSize = new System.Drawing.Size(100, 519);
         }
     }
 }

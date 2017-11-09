@@ -16,7 +16,6 @@ namespace Interface
         private IDictionary<ModeloAproximacion, Aproximacion> _modelosAproximaciones;
         private Output _mejorResultado;
         int calculado = 0;
-        public String myString = "Cristhian";
 
         public Main()
         {
@@ -24,7 +23,7 @@ namespace Interface
 
             this.InitializeInput();
             this.InitializeOutput();
-            
+
             // Test
 
             //AgregarPunto(1, 1);
@@ -34,14 +33,21 @@ namespace Interface
             //AgregarPunto(8, 4.8);
             //AgregarPunto(9, 8.3);
             //AgregarPunto(11, 9.4);
-            
-            //_input.CantidadDecimales = 4;
 
             AgregarPunto(1, 5.1);
             AgregarPunto(1.25, 5.79);
             AgregarPunto(1.5, 6.53);
             AgregarPunto(1.75, 7.45);
             AgregarPunto(2, 8.46);
+
+            // Test http://www.monografias.com/trabajos89/regresion-potencial-metodo-minimos-cuadrados/regresion-potencial-metodo-minimos-cuadrados.shtml
+            //AgregarPunto(1, 7);
+            //AgregarPunto(2, 30);
+            //AgregarPunto(3, 90);
+            //AgregarPunto(4, 170);
+            //AgregarPunto(5, 290);
+            //AgregarPunto(6, 450);
+            //AgregarPunto(7, 650);
 
             _input.CantidadDecimales = 4;
 
@@ -91,11 +97,14 @@ namespace Interface
             _input.QuitarPuntos();
             _puntosBindingList.Clear();
             calculado = 0;
+            _resultados.Clear();
         }
 
         private void btnDecimales_Click(object sender, EventArgs e)
         {
             _input.CantidadDecimales = Convert.ToInt32(this.decimalesValue.Value);
+            calculado = 0;
+            _resultados.Clear();
         }
 
         private void btnRecta_Click(object sender, EventArgs e)
@@ -202,7 +211,7 @@ namespace Interface
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            if (calculado == 0)
+            if (calculado == 0 && _input.Puntos.Count > 0)
             {
                 calculado = 1;
                 //throw new ApplicationException("Calculo realizado");
@@ -222,7 +231,10 @@ namespace Interface
             else
             {
                 //throw new ApplicationException("Ya se calculo");
-                MensajeError("Estos datos ya han sido calculados.", "Aproximación calculada");
+                if(_input.Puntos.Count == 0)
+                    MensajeError("Lista de puntos vacia", "Imposible calcular");
+                else
+                    MensajeError("Estos datos ya han sido calculados.", "Aproximación calculada");
             }
         }
 

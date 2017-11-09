@@ -62,15 +62,18 @@ namespace Core
             var coheficientes = new[] {a, b};
             var funcion = this.Funcion(a, b);
 
-            sumaLogX = resultadoRecta.Totales[0];
-            sumaLogY = resultadoRecta.Totales[1];
-            sumaLogXalCuadrado = resultadoRecta.Totales[2];
-            sumaLogXxSumaLogY =  resultadoRecta.Totales[0] * resultadoRecta.Totales[1];
+            sumaLogX = Math.Round(resultadoRecta.Totales[0], input.CantidadDecimales);
+            sumaLogY = Math.Round(resultadoRecta.Totales[1], input.CantidadDecimales);
+            sumaLogXalCuadrado = Math.Round(resultadoRecta.Totales[2], input.CantidadDecimales);
+            sumaLogXxSumaLogY = Math.Round(resultadoRecta.Totales[0] * resultadoRecta.Totales[1], input.CantidadDecimales);
             cantPuntos = puntosRecta.Count;
 
             String sistemaEcuaciones = "";
-            sistemaEcuaciones += sumaLogY.ToString() + " = log A " + cantPuntos + " + B " + sumaLogX.ToString() + "\n";
-            sistemaEcuaciones += sumaLogXxSumaLogY.ToString() + " = log A " + sumaLogX.ToString() + " + B " + sumaLogXalCuadrado.ToString();
+            //sistemaEcuaciones += sumaLogY.ToString() + " = log A " + cantPuntos + " + B " + sumaLogX.ToString() + "\n";
+            //sistemaEcuaciones += sumaLogXxSumaLogY.ToString() + " = log A " + sumaLogX.ToString() + " + B " + sumaLogXalCuadrado.ToString();
+            sistemaEcuaciones += resultadoRecta.SistemaEcuaciones.ToUpper() + "\n";
+            sistemaEcuaciones += "A = a" + "\n";
+            sistemaEcuaciones += "b = e^B" + "\n";
 
             return this.Output(input, resultados, totales, coheficientes, funcion, sistemaEcuaciones);
         }

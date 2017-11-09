@@ -52,8 +52,7 @@ namespace Core
             //return this.Output(input, resultados, totales, coheficientes, funcion);
 
             String sistemaEcuaciones = "";
-            sistemaEcuaciones += "A " + totales[3].ToString() + " + B " + totales[0].ToString() + " = " + totales[4].ToString() + "\n";
-            sistemaEcuaciones += "A " + totales[0].ToString() + " + B " + input.Puntos.Count + " = " + totales[2].ToString() + "\n";
+            sistemaEcuaciones += resultadoRecta.SistemaEcuaciones.ToUpper() + "\n";
             sistemaEcuaciones += "A = a" + "\n";
             sistemaEcuaciones += "b = e^B" + "\n";
 
